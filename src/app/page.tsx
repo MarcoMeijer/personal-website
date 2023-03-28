@@ -23,11 +23,11 @@ export default function Home() {
           <ambientLight color="white" intensity={0.3} />
         </Canvas>
       </div>
-      <h1 className="flex text-9xl font-bold text-white items-center pointer-events-none relative z-10">
-        Marco Lucas <br />
-        Meijer
-      </h1>
-      <div className="relative z-10">
+      <div className="flex flex-col text-10xl leading-none font-bold text-white items-begin pointer-events-none relative z-100">
+        <h1>Marco Lucas</h1>
+        <h1 className="ml-32">Meijer</h1>
+      </div>
+      <div className="left-80 bottom-60 absolute z-10">
         <LinkButton title="resume" href="/resume" />
       </div>
     </main>

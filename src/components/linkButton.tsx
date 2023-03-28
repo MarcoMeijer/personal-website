@@ -7,11 +7,13 @@ export interface LinkButtonProps {
 
 export default function LinkButton({ title, href }: LinkButtonProps) {
   return (
-    <Link
-      href={href}
-      className="bg-purple-400 m-2 px-6 py-3 rounded font-bold text-xl hover:bg-purple-300"
-    >
-      {title}
-    </Link>
+    <div className="hover:animate-bubble">
+      <Link
+        href={href}
+        className="bg-purple-400 m-2 px-8 py-4 rounded-full font-bold text-2xl hover:bg-purple-300"
+      >
+        {title}
+      </Link>
+    </div>
   );
 }

@@ -1,18 +1,14 @@
-import { sdk } from "@/lib/client";
+import Button from "@/components/button";
+import LinkButton from "@/components/linkButton";
 
-export default async function Home() {
-  const { skills } = await sdk.Skills();
-
+export default function Home() {
   return (
-    <main>
-      <h1 className="text-3xl font-bold underline">Marco Lucas Meijer</h1>
-      <div>
-        {skills.map(({ name, percentage }, i) => (
-          <p key={i}>
-            {name} - {percentage}%
-          </p>
-        ))}
-      </div>
+    <main className="h-screen bg-black p-10">
+      <h1 className="flex text-9xl font-bold text-white items-center">
+        Marco Lucas <br />
+        Meijer
+      </h1>
+      <LinkButton title="resume" href="/resume" />
     </main>
   );
 }

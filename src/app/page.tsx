@@ -15,6 +15,7 @@ export default function Home() {
           shadows
           camera={{
             position: [0, 10, 0],
+            rotation: [0, 0, 0],
           }}
         >
           <MouseCamera />

@@ -2,7 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import React from "react";
-import Floor from "./three/floor";
+import Floor from "./three/Floor";
 
 export interface MyCanvasProps {
   children?: React.ReactNode;

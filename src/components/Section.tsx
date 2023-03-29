@@ -1,5 +1,5 @@
 import SkillComponent from "./SkillComponent";
-import TextComponent from "./textComponent";
+import TextComponent from "./TextComponent";
 
 export type Component =
   | { __typename: "Image" }

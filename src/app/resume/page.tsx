@@ -1,5 +1,5 @@
 import MyCanvas from "@/components/MyCanvas";
-import Section from "@/components/section";
+import Section from "@/components/Section";
 import { sdk } from "@/lib/client";
 
 export default async function Resume() {

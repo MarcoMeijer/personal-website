@@ -1,8 +1,8 @@
 "use client";
-import LinkButton from "@/components/linkButton";
+import LinkButton from "@/components/LinkButton";
 import MyCanvas from "@/components/MyCanvas";
-import SplitText from "@/components/splitText";
-import MouseCamera from "@/components/three/mouseCamera";
+import SplitText from "@/components/SplitText";
+import MouseCamera from "@/components/three/MouseCamera";
 import { useRef } from "react";
 
 export default function Home() {

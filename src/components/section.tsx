@@ -22,11 +22,16 @@ export type Component =
 export interface SectionProps {
   title: string;
   components: Array<Component>;
+  index: number;
 }
 
-export default function Section({ title, components }: SectionProps) {
+export default function Section({ title, components, index }: SectionProps) {
   return (
-    <div className="p-5 backdrop-blur-sm w-6/12 bg-white bg-opacity-25">
+    <div
+      className={`p-5 backdrop-blur-sm w-6/12 m-16 bg-white bg-opacity-25 rounded-2xl ${
+        index % 2 === 0 ? "self-start" : "self-end"
+      }`}
+    >
       <h1 className="text-9xl font-bold text-white animate-move-letter m-4">
         {title}
       </h1>

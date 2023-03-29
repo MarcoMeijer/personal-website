@@ -10,7 +10,7 @@ export interface MyCanvasProps {
 
 export default function MyCanvas({ children }: MyCanvasProps): JSX.Element {
   return (
-    <div className="absolute w-screen h-screen top-0 left-0">
+    <div className="fixed w-screen h-screen top-0 left-0">
       <Canvas
         shadows
         camera={{

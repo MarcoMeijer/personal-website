@@ -6,11 +6,11 @@ export default async function Resume() {
   const { sections } = await sdk.GetSections();
 
   return (
-    <div className="flex flex-col w-screen h-screen bg-black">
+    <div className="flex flex-col min-w-screen min-h-screen bg-black items-stretch">
       <MyCanvas />
-      <div className="m-16">
-        {sections.map((props) => (
-          <Section key={props.title} {...props} />
+      <div className="flex flex-col m-8">
+        {sections.map((props, i) => (
+          <Section key={props.title} {...props} index={i} />
         ))}
       </div>
     </div>

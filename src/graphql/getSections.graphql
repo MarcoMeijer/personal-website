@@ -21,6 +21,11 @@ query GetSections {
         fromYear
         toYear
       }
+      ... on Skill {
+        id
+        name
+        percentage
+      }
     }
   }
 }

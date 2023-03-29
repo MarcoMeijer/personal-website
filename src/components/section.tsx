@@ -1,7 +1,8 @@
-import { GetSectionsQuery } from "@/generated/graphql";
+import SkillComponent from "./SkillComponent";
 import TextComponent from "./textComponent";
 
 export type Component =
+  | { __typename: "Image" }
   | {
       __typename: "Project";
       id: string;
@@ -10,6 +11,7 @@ export type Component =
       url?: string | null;
       description: string;
     }
+  | { __typename: "Skill"; id: string; name: string; percentage: number }
   | { __typename: "Text"; title?: string | null; content?: string | null }
   | {
       __typename: "TimePeriod";
@@ -38,6 +40,8 @@ export default function Section({ title, components, index }: SectionProps) {
       {components.map((component, i) => {
         if (component.__typename === "Text") {
           return <TextComponent key={i} {...component} />;
+        } else if (component.__typename === "Skill") {
+          return <SkillComponent key={i} {...component} />;
         }
       })}
     </div>

@@ -14,7 +14,7 @@ export default function MyCanvas({ children }: MyCanvasProps): JSX.Element {
       <Canvas
         shadows
         camera={{
-          position: [0, 10, 0],
+          position: [0, 5, 0],
           rotation: [0, 0, 0],
         }}
       >

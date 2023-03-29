@@ -1,4 +1,5 @@
 import { GetSectionsQuery } from "@/generated/graphql";
+import TextComponent from "./textComponent";
 
 export type Component =
   | {
@@ -25,8 +26,15 @@ export interface SectionProps {
 
 export default function Section({ title, components }: SectionProps) {
   return (
-    <div>
-      <h1 className="text-9xl font-bold text-white">{title}</h1>
+    <div className="p-5 backdrop-blur-sm w-6/12 bg-white bg-opacity-25">
+      <h1 className="text-9xl font-bold text-white animate-move-letter m-4">
+        {title}
+      </h1>
+      {components.map((component, i) => {
+        if (component.__typename === "Text") {
+          return <TextComponent key={i} {...component} />;
+        }
+      })}
     </div>
   );
 }

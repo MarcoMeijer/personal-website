@@ -1,6 +1,0 @@
-query Skills {
-  skills {
-    name
-    percentage
-  }
-}

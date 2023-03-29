@@ -1,0 +1,26 @@
+query GetSections {
+  sections {
+    id
+    title
+    components {
+      __typename
+      ... on Project {
+        id
+        name
+        year
+        url
+        description
+      }
+      ... on Text {
+        title
+        content
+      }
+      ... on TimePeriod {
+        name
+        description
+        fromYear
+        toYear
+      }
+    }
+  }
+}

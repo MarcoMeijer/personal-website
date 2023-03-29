@@ -1,5 +1,6 @@
 "use client";
 import LinkButton from "@/components/linkButton";
+import SplitText from "@/components/splitText";
 import Floor from "@/components/three/floor";
 import MouseCamera from "@/components/three/mouseCamera";
 import { Canvas } from "@react-three/fiber";
@@ -24,8 +25,20 @@ export default function Home() {
         </Canvas>
       </div>
       <div className="flex flex-col text-10xl leading-none font-bold text-white items-begin pointer-events-none relative z-100">
-        <h1>Marco Lucas</h1>
-        <h1 className="ml-32">Meijer</h1>
+        <SplitText
+          text="Marco Lucas"
+          startDelay={1}
+          deltaDelay={0.08}
+          className="animate-move-letter fill-mode-backwards"
+        />
+        <div className="pl-24">
+          <SplitText
+            text="Meijer"
+            startDelay={2.2}
+            deltaDelay={0.08}
+            className="animate-move-letter fill-mode-backwards"
+          />
+        </div>
       </div>
       <div className="left-80 bottom-60 absolute z-10">
         <LinkButton title="resume" href="/resume" />

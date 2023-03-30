@@ -7,6 +7,7 @@ export type Component =
   | {
       __typename: "Image";
       id: string;
+      description?: string | null;
       image: { url: string; width?: number | null; height?: number | null };
     }
   | {
@@ -15,14 +16,14 @@ export type Component =
       name: string;
       year: number;
       url?: string | null;
-      description: string;
+      description?: string | null;
     }
   | { __typename: "Skill"; id: string; name: string; percentage: number }
   | { __typename: "Text"; title?: string | null; content?: string | null }
   | {
       __typename: "TimePeriod";
       name: string;
-      description: string;
+      description?: string | null;
       fromYear: number;
       toYear?: number | null;
     };
@@ -36,11 +37,11 @@ export interface SectionProps {
 export default function Section({ title, components, index }: SectionProps) {
   return (
     <div
-      className={`flex flex-col p-5 backdrop-blur-sm w-6/12 m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
+      className={`flex flex-row flex-wrap items-start justify-center p-5 backdrop-blur-sm w-7/12 m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
         index % 2 === 0 ? "self-start" : "self-end"
       }`}
     >
-      <h1 className="text-9xl font-bold text-white animate-move-letter m-4">
+      <h1 className="text-9xl font-bold text-white animate-move-letter m-4 w-full">
         {title}
       </h1>
       {components.map((component, i) => {

@@ -28,6 +28,7 @@ query GetSections {
       }
       ... on Image {
         id
+        description
         image {
           url(
             transformation: {

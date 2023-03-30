@@ -1,6 +1,6 @@
 export interface TimePeriod {
   name: string;
-  description: string;
+  description?: string | null;
   fromYear: number;
   toYear?: number | null;
 }

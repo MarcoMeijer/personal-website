@@ -1519,7 +1519,7 @@ export type PageInfo = {
 };
 
 export type Project = {
-  description: Scalars["String"];
+  description?: Maybe<Scalars["String"]>;
   /** The unique identifier */
   id: Scalars["ID"];
   name: Scalars["String"];
@@ -1552,7 +1552,7 @@ export type ProjectConnection = {
 };
 
 export type ProjectCreateInput = {
-  description: Scalars["String"];
+  description?: InputMaybe<Scalars["String"]>;
   name: Scalars["String"];
   thumbnail: AssetCreateOneInlineInput;
   url?: InputMaybe<Scalars["String"]>;
@@ -4527,7 +4527,7 @@ export type TextWhereUniqueInput = {
 };
 
 export type TimePeriod = {
-  description: Scalars["String"];
+  description?: Maybe<Scalars["String"]>;
   fromYear: Scalars["Int"];
   /** The unique identifier */
   id: Scalars["ID"];
@@ -4554,7 +4554,7 @@ export type TimePeriodConnection = {
 };
 
 export type TimePeriodCreateInput = {
-  description: Scalars["String"];
+  description?: InputMaybe<Scalars["String"]>;
   fromYear: Scalars["Int"];
   name: Scalars["String"];
   toYear?: InputMaybe<Scalars["Int"]>;
@@ -5471,6 +5471,7 @@ export type GetSectionsQuery = {
       | {
           __typename: "Image";
           id: string;
+          description?: string | null;
           image: { url: string; width?: number | null; height?: number | null };
         }
       | {
@@ -5479,14 +5480,14 @@ export type GetSectionsQuery = {
           name: string;
           year: number;
           url?: string | null;
-          description: string;
+          description?: string | null;
         }
       | { __typename: "Skill"; id: string; name: string; percentage: number }
       | { __typename: "Text"; title?: string | null; content?: string | null }
       | {
           __typename: "TimePeriod";
           name: string;
-          description: string;
+          description?: string | null;
           fromYear: number;
           toYear?: number | null;
         }
@@ -5525,6 +5526,7 @@ export const GetSectionsDocument = /*#__PURE__*/ gql`
         }
         ... on Image {
           id
+          description
           image {
             url(
               transformation: {

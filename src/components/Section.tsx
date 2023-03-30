@@ -81,7 +81,6 @@ export default function Section({ title, components, index }: SectionProps) {
           } else if (component.__typename === "Image") {
             return <ImageComponent key={i} {...component} {...props} />;
           } else if (component.__typename === "Project") {
-            console.log(component);
             return <ProjectComponent key={i} {...component} {...props} />;
           }
         })}

@@ -26,6 +26,18 @@ query GetSections {
         name
         percentage
       }
+      ... on Image {
+        id
+        image {
+          url(
+            transformation: {
+              image: { resize: { height: 720, width: 360, fit: max } }
+            }
+          )
+          width
+          height
+        }
+      }
     }
   }
 }

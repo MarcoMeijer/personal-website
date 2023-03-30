@@ -1,9 +1,14 @@
+import ImageComponent from "./ImageComponent";
 import SkillComponent from "./SkillComponent";
 import TextComponent from "./TextComponent";
 import TimePeriodComponent from "./TimePeriodComponent";
 
 export type Component =
-  | { __typename: "Image" }
+  | {
+      __typename: "Image";
+      id: string;
+      image: { url: string; width?: number | null; height?: number | null };
+    }
   | {
       __typename: "Project";
       id: string;
@@ -31,7 +36,7 @@ export interface SectionProps {
 export default function Section({ title, components, index }: SectionProps) {
   return (
     <div
-      className={`p-5 backdrop-blur-sm w-6/12 m-16 bg-white bg-opacity-25 rounded-2xl ${
+      className={`flex flex-col p-5 backdrop-blur-sm w-6/12 m-16 bg-white bg-opacity-25 rounded-2xl ${
         index % 2 === 0 ? "self-start" : "self-end"
       }`}
     >
@@ -45,6 +50,8 @@ export default function Section({ title, components, index }: SectionProps) {
           return <SkillComponent key={i} {...component} />;
         } else if (component.__typename === "TimePeriod") {
           return <TimePeriodComponent key={i} {...component} />;
+        } else if (component.__typename === "Image") {
+          return <ImageComponent key={i} {...component} />;
         }
       })}
     </div>

@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
 import Ferris from "@/components/three/Ferris";
 import MouseCamera from "@/components/three/MouseCamera";
+import ScrollCamera from "@/components/three/ScrollCamera";
 import { sdk } from "@/lib/client";
 
 export default async function Resume() {
@@ -13,6 +14,7 @@ export default async function Resume() {
       <MyCanvas camera={{ position: [-2, 5, 10], rotation: [0, 0, 0] }}>
         <MouseCamera />
         <Ferris />
+        <ScrollCamera />
       </MyCanvas>
       <Navbar sections={sections} />
       <div className="flex flex-col m-8">

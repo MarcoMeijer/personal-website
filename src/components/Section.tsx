@@ -1,5 +1,6 @@
 import SkillComponent from "./SkillComponent";
 import TextComponent from "./TextComponent";
+import TimePeriodComponent from "./TimePeriodComponent";
 
 export type Component =
   | { __typename: "Image" }
@@ -42,6 +43,8 @@ export default function Section({ title, components, index }: SectionProps) {
           return <TextComponent key={i} {...component} />;
         } else if (component.__typename === "Skill") {
           return <SkillComponent key={i} {...component} />;
+        } else if (component.__typename === "TimePeriod") {
+          return <TimePeriodComponent key={i} {...component} />;
         }
       })}
     </div>

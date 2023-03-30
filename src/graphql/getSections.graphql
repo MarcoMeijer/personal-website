@@ -2,7 +2,7 @@ query GetSections {
   sections {
     id
     title
-    components {
+    components(first: 100) {
       __typename
       ... on Project {
         id

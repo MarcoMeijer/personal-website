@@ -75,7 +75,15 @@ export default function Section({ title, components, index }: SectionProps) {
           if (component.__typename === "Text") {
             return <TextComponent key={i} {...component} {...props} />;
           } else if (component.__typename === "Skill") {
-            return <SkillComponent key={i} {...component} {...props} />;
+            return (
+              <SkillComponent
+                key={i}
+                {...component}
+                {...props}
+                visible={visible}
+                delay={0.3 + 0.3 * i}
+              />
+            );
           } else if (component.__typename === "TimePeriod") {
             return <TimePeriodComponent key={i} {...component} {...props} />;
           } else if (component.__typename === "Image") {

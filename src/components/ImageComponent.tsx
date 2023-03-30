@@ -37,7 +37,7 @@ export default function ImageComponent({
 
   return (
     <div
-      className={`flex flex-col items-center m-4 w-5/12 hover:scale-125 transition-all duration-300 ${className}`}
+      className={`flex flex-col items-center m-4 w-5/12 hover:scale-110 transition-all duration-300 ${className}`}
       style={style}
     >
       <Image

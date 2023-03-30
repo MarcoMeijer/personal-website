@@ -1,4 +1,5 @@
 import MyCanvas from "@/components/MyCanvas";
+import Navbar from "@/components/Navbar";
 import Section from "@/components/Section";
 import Ferris from "@/components/three/Ferris";
 import MouseCamera from "@/components/three/MouseCamera";
@@ -13,6 +14,7 @@ export default async function Resume() {
         <MouseCamera />
         <Ferris />
       </MyCanvas>
+      <Navbar sections={sections} />
       <div className="flex flex-col m-8">
         {sections.map((props, i) => (
           <Section key={props.title} {...props} index={i} />

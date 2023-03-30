@@ -42,6 +42,8 @@ export interface SectionProps {
 export default function Section({ title, components, index }: SectionProps) {
   const [visible, setVisible] = useState(false);
 
+  let currentTime = 0;
+
   return (
     <div
       className={`p-5 backdrop-blur-sm w-12/12 md:w-7/12 m-4 lg:m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
@@ -61,17 +63,22 @@ export default function Section({ title, components, index }: SectionProps) {
           {title}
         </h1>
         {components.map((component, i) => {
+          currentTime += component.__typename === "Skill" ? 0.7 : 0.3;
+
           const className = visible
             ? "animate-enter-up fill-mode-backwards"
             : "opacity-0";
+
           const style: CSSProperties = {
-            animationDelay: `${0.3 + 0.3 * i}s`,
+            animationDelay: `${currentTime}s`,
             animationFillMode: "backwards",
           };
+
           const props = {
             className,
             style,
           };
+
           if (component.__typename === "Text") {
             return <TextComponent key={i} {...component} {...props} />;
           } else if (component.__typename === "Skill") {
@@ -81,7 +88,7 @@ export default function Section({ title, components, index }: SectionProps) {
                 {...component}
                 {...props}
                 visible={visible}
-                delay={0.3 + 0.3 * i}
+                delay={currentTime}
               />
             );
           } else if (component.__typename === "TimePeriod") {

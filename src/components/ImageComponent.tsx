@@ -37,10 +37,16 @@ export default function ImageComponent({
 
   return (
     <div
-      className={`flex flex-col items-center m-4 w-5/12 ${className}`}
+      className={`flex flex-col items-center m-4 w-5/12 hover:scale-125 transition-all duration-300 ${className}`}
       style={style}
     >
-      <Image alt="image" src={image.url} width={width} height={height} />
+      <Image
+        className=""
+        alt="image"
+        src={image.url}
+        width={width}
+        height={height}
+      />
       <p className="text-gray-300">{description}</p>
     </div>
   );

@@ -5481,6 +5481,11 @@ export type GetSectionsQuery = {
           year: number;
           url?: string | null;
           description?: string | null;
+          thumbnail: {
+            url: string;
+            width?: number | null;
+            height?: number | null;
+          };
         }
       | { __typename: "Skill"; id: string; name: string; percentage: number }
       | { __typename: "Text"; title?: string | null; content?: string | null }
@@ -5508,6 +5513,15 @@ export const GetSectionsDocument = /*#__PURE__*/ gql`
           year
           url
           description
+          thumbnail {
+            url(
+              transformation: {
+                image: { resize: { height: 720, width: 360, fit: max } }
+              }
+            )
+            width
+            height
+          }
         }
         ... on Text {
           title

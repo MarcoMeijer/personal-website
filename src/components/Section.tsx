@@ -2,6 +2,7 @@
 import { CSSProperties, useState } from "react";
 import ImageComponent from "./ImageComponent";
 import OnScrollListener from "./OnScrollListener";
+import ProjectComponent from "./ProjectComponent";
 import SkillComponent from "./SkillComponent";
 import TextComponent from "./TextComponent";
 import TimePeriodComponent from "./TimePeriodComponent";
@@ -20,6 +21,7 @@ export type Component =
       year: number;
       url?: string | null;
       description?: string | null;
+      thumbnail: { url: string; width?: number | null; height?: number | null };
     }
   | { __typename: "Skill"; id: string; name: string; percentage: number }
   | { __typename: "Text"; title?: string | null; content?: string | null }
@@ -78,6 +80,9 @@ export default function Section({ title, components, index }: SectionProps) {
             return <TimePeriodComponent key={i} {...component} {...props} />;
           } else if (component.__typename === "Image") {
             return <ImageComponent key={i} {...component} {...props} />;
+          } else if (component.__typename === "Project") {
+            console.log(component);
+            return <ProjectComponent key={i} {...component} {...props} />;
           }
         })}
       </OnScrollListener>

@@ -10,6 +10,15 @@ query GetSections {
         year
         url
         description
+        thumbnail {
+          url(
+            transformation: {
+              image: { resize: { height: 720, width: 360, fit: max } }
+            }
+          )
+          width
+          height
+        }
       }
       ... on Text {
         title

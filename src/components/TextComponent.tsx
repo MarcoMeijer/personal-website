@@ -17,10 +17,12 @@ export default function TextComponent({
 }: TextComponentProps): JSX.Element {
   return (
     <div className={`my-4 ${className}`} style={style}>
-      <h1 className="text-4xl font-bold text-gray-200 my-4">{title}</h1>
+      <h1 className="text-xl lg:text-4xl font-bold text-gray-200 my-4">
+        {title}
+      </h1>
       {content?.split("\n").map((paragraph, i) => {
         return (
-          <p key={i} className="text-2xl text-gray-300 my-4">
+          <p key={i} className="lg:text-2xl text-gray-300 my-4">
             {paragraph}
           </p>
         );

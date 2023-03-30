@@ -42,7 +42,7 @@ export default function Section({ title, components, index }: SectionProps) {
 
   return (
     <div
-      className={`p-5 backdrop-blur-sm w-7/12 m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
+      className={`p-5 backdrop-blur-sm w-7/12 m-4 lg:m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
         index % 2 === 0 ? "self-start" : "self-end"
       }`}
     >
@@ -51,7 +51,7 @@ export default function Section({ title, components, index }: SectionProps) {
         onScroll={() => setVisible(true)}
       >
         <h1
-          className={`text-9xl font-bold text-white m-4 w-full ${
+          className={`text-4xl lg:text-8xl font-bold text-white m-4 w-full ${
             visible ? "animate-move-letter" : "opacity-0"
           }`}
         >

@@ -13,7 +13,7 @@ export default function Home() {
       <MyCanvas camera={{ position: [0, 5, 0], rotation: [0, 0, 0] }}>
         <MouseCamera />
       </MyCanvas>
-      <div className="flex flex-col text-10xl leading-none font-bold text-white items-begin pointer-events-none relative z-100">
+      <div className="flex flex-col text-8xl lg:text-10xl leading-none font-bold text-white items-begin pointer-events-none relative z-100">
         <SplitText
           text="Marco Lucas"
           startDelay={1}
@@ -29,7 +29,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="left-80 bottom-60 absolute z-10">
+      <div className="left-40 bottom-28 lg:left-80 lg:bottom-60 absolute z-10">
         <LinkButton title="resume" href="/resume" />
       </div>
     </main>

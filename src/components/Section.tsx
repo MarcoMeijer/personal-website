@@ -44,7 +44,7 @@ export default function Section({ title, components, index }: SectionProps) {
 
   return (
     <div
-      className={`p-5 backdrop-blur-sm w-7/12 m-4 lg:m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
+      className={`p-5 backdrop-blur-sm w-12/12 md:w-7/12 m-4 lg:m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
         index % 2 === 0 ? "self-start" : "self-end"
       }`}
       id={title}

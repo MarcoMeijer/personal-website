@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main className="h-screen p-10 bg-black" ref={ref}>
-      <MyCanvas>
+      <MyCanvas camera={{ position: [0, 5, 0], rotation: [0, 0, 0] }}>
         <MouseCamera />
       </MyCanvas>
       <div className="flex flex-col text-10xl leading-none font-bold text-white items-begin pointer-events-none relative z-100">

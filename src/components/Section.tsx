@@ -36,7 +36,7 @@ export interface SectionProps {
 export default function Section({ title, components, index }: SectionProps) {
   return (
     <div
-      className={`flex flex-col p-5 backdrop-blur-sm w-6/12 m-16 bg-white bg-opacity-25 rounded-2xl ${
+      className={`flex flex-col p-5 backdrop-blur-sm w-6/12 m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
         index % 2 === 0 ? "self-start" : "self-end"
       }`}
     >

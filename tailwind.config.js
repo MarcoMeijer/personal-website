@@ -41,12 +41,17 @@ module.exports = {
             transform: "translateY(0px)",
             opacity: 1,
           },
+        },
+        "page-transition": {
+          "0%": {width: "2000px", height: "2000px"},
+          "100%": {width: 0, height: 0}
         }
       },
       animation: {
         bubble: 'bubble 1.3s linear infinite',
         "move-letter": 'move-letter 0.7s forwards',
         "enter-up": 'enter-up 0.7s forwards',
+        "page-transition": 'page-transition 0.7s forwards',
       }
     },
   },

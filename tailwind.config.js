@@ -30,11 +30,23 @@ module.exports = {
             transform: "translateY(0)",
             opacity: 1,
           },
+        },
+        "enter-up": {
+          "0%": {transform: "translateY(70px)", opacity: 0},
+          '60%': {
+            transform: "translateY(-10px)",
+            opacity: 0.7,
+          },
+          '100%': {
+            transform: "translateY(0px)",
+            opacity: 1,
+          },
         }
       },
       animation: {
         bubble: 'bubble 1.3s linear infinite',
         "move-letter": 'move-letter 0.7s forwards',
+        "enter-up": 'enter-up 0.7s forwards',
       }
     },
   },

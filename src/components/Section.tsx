@@ -1,4 +1,7 @@
+"use client";
+import { CSSProperties, useState } from "react";
 import ImageComponent from "./ImageComponent";
+import OnScrollListener from "./OnScrollListener";
 import SkillComponent from "./SkillComponent";
 import TextComponent from "./TextComponent";
 import TimePeriodComponent from "./TimePeriodComponent";
@@ -35,26 +38,48 @@ export interface SectionProps {
 }
 
 export default function Section({ title, components, index }: SectionProps) {
+  const [visible, setVisible] = useState(false);
+
   return (
     <div
-      className={`flex flex-row flex-wrap items-start justify-center p-5 backdrop-blur-sm w-7/12 m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
+      className={`p-5 backdrop-blur-sm w-7/12 m-16 bg-gray-600 bg-opacity-30 rounded-2xl ${
         index % 2 === 0 ? "self-start" : "self-end"
       }`}
     >
-      <h1 className="text-9xl font-bold text-white animate-move-letter m-4 w-full">
-        {title}
-      </h1>
-      {components.map((component, i) => {
-        if (component.__typename === "Text") {
-          return <TextComponent key={i} {...component} />;
-        } else if (component.__typename === "Skill") {
-          return <SkillComponent key={i} {...component} />;
-        } else if (component.__typename === "TimePeriod") {
-          return <TimePeriodComponent key={i} {...component} />;
-        } else if (component.__typename === "Image") {
-          return <ImageComponent key={i} {...component} />;
-        }
-      })}
+      <OnScrollListener
+        className="flex flex-row flex-wrap items-start justify-center"
+        onScroll={() => setVisible(true)}
+      >
+        <h1
+          className={`text-9xl font-bold text-white m-4 w-full ${
+            visible ? "animate-move-letter" : "opacity-0"
+          }`}
+        >
+          {title}
+        </h1>
+        {components.map((component, i) => {
+          const className = visible
+            ? "animate-enter-up fill-mode-backwards"
+            : "opacity-0";
+          const style: CSSProperties = {
+            animationDelay: `${0.3 + 0.3 * i}s`,
+            animationFillMode: "backwards",
+          };
+          const props = {
+            className,
+            style,
+          };
+          if (component.__typename === "Text") {
+            return <TextComponent key={i} {...component} {...props} />;
+          } else if (component.__typename === "Skill") {
+            return <SkillComponent key={i} {...component} {...props} />;
+          } else if (component.__typename === "TimePeriod") {
+            return <TimePeriodComponent key={i} {...component} {...props} />;
+          } else if (component.__typename === "Image") {
+            return <ImageComponent key={i} {...component} {...props} />;
+          }
+        })}
+      </OnScrollListener>
     </div>
   );
 }

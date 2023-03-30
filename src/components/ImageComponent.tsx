@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CSSProperties } from "react";
 
 export interface ImageComponentProps {
   description?: string | null;
@@ -7,11 +8,15 @@ export interface ImageComponentProps {
     width?: number | null;
     height?: number | null;
   };
+  className?: string | null;
+  style?: CSSProperties;
 }
 
 export default function ImageComponent({
   image,
   description,
+  className,
+  style,
 }: ImageComponentProps): JSX.Element {
   const maxWidth = 360;
   const maxHeight = 280;
@@ -31,7 +36,10 @@ export default function ImageComponent({
   }
 
   return (
-    <div className="flex flex-col items-center m-4 w-5/12">
+    <div
+      className={`flex flex-col items-center m-4 w-5/12 ${className}`}
+      style={style}
+    >
       <Image alt="image" src={image.url} width={width} height={height} />
       <p className="text-gray-300">{description}</p>
     </div>

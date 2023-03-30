@@ -1,8 +1,12 @@
+import { CSSProperties } from "react";
+
 export interface TimePeriod {
   name: string;
   description?: string | null;
   fromYear: number;
   toYear?: number | null;
+  className?: string | null;
+  style?: CSSProperties;
 }
 
 export default function TimePeriodComponent({
@@ -10,9 +14,11 @@ export default function TimePeriodComponent({
   description,
   fromYear,
   toYear,
+  className,
+  style,
 }: TimePeriod): JSX.Element {
   return (
-    <div className="flex flex-row my-8">
+    <div className={`flex flex-row my-8 ${className}`} style={style}>
       <div className="flex flex-col w-4/12">
         <h2 className="text-3xl font-bold text-gray-200">{name}</h2>
         <p className="text-2xl text-gray-400">

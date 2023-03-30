@@ -33,7 +33,7 @@ export default function ImageComponent({
   return (
     <div className="flex flex-col items-center m-4 w-5/12">
       <Image alt="image" src={image.url} width={width} height={height} />
-      <p className="text-gray-200">{description}</p>
+      <p className="text-gray-300">{description}</p>
     </div>
   );
 }

@@ -8,9 +8,15 @@ export default function TextComponent({
   content,
 }: TextComponentProps): JSX.Element {
   return (
-    <div className="m-16">
-      <h1 className="text-4xl font-bold text-white">{title}</h1>
-      <p className="text-2xl text-white">{content}</p>
+    <div className="my-4">
+      <h1 className="text-4xl font-bold text-gray-200 my-4">{title}</h1>
+      {content?.split("\n").map((paragraph, i) => {
+        return (
+          <p key={i} className="text-2xl text-gray-300 my-4">
+            {paragraph}
+          </p>
+        );
+      })}
     </div>
   );
 }

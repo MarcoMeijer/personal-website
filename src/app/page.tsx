@@ -1,16 +1,12 @@
-"use client";
 import LinkButton from "@/components/LinkButton";
 import MyCanvas from "@/components/MyCanvas";
 import SplitText from "@/components/SplitText";
 import Ferris from "@/components/three/Ferris";
 import MouseCamera from "@/components/three/MouseCamera";
-import { useRef } from "react";
 
 export default function Home() {
-  const ref = useRef<HTMLElement>(null);
-
   return (
-    <main className="h-screen p-10 bg-black" ref={ref}>
+    <main className="h-screen p-10 bg-black">
       <MyCanvas camera={{ position: [0, 5, 0], rotation: [0, 0, 0] }}>
         <Ferris position={[1, 4, -2]} rotation={[0, -0.6, 0]} />
         <MouseCamera />

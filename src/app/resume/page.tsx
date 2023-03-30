@@ -11,9 +11,9 @@ export default async function Resume() {
 
   return (
     <div className="flex flex-col min-w-screen min-h-screen bg-black items-stretch">
-      <MyCanvas camera={{ position: [-2, 5, 10], rotation: [0, 0, 0] }}>
+      <MyCanvas camera={{ position: [-2, 4, 10], rotation: [0, 0, 0] }}>
         <MouseCamera />
-        <Ferris />
+        <Ferris position={[1, 3, 20]} rotation={[0, -0.6, 0]} />
         <ScrollCamera />
       </MyCanvas>
       <Navbar sections={sections} />

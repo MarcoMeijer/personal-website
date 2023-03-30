@@ -1,8 +1,12 @@
 "use client";
-import { useLoader } from "@react-three/fiber";
+import { GroupProps, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-export default function Ferris() {
+export default function Ferris(props: GroupProps) {
   const gltf = useLoader(GLTFLoader, "/ferris3d_v1.0.gltf");
-  return <primitive object={gltf.scene} />;
+  return (
+    <group {...props}>
+      <primitive object={gltf.scene} />
+    </group>
+  );
 }
